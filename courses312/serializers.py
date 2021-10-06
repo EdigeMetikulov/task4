@@ -22,9 +22,9 @@ class ContactSerializer(serializers.ModelSerializer):
 
 
 class CourseSerializer(serializers.ModelSerializer):
-    category = CategorySerializer(read_only=True, many=False)
-    branches = BranchSerializer(read_only=True, many=False)
-    contacts = ContactSerializer(read_only=True, many=False)
+    category = CategorySerializer()
+    branches = BranchSerializer()
+    contacts = ContactSerializer()
 
     class Meta:
         model = Course

@@ -1,24 +1,12 @@
 from rest_framework.routers import DefaultRouter
-# from courses.courses312.views import CategoryViewSet, CourseViewSet, ContactViewSet, BranchViewSet
-from .import views
-
+from django.urls import path
+from .views import CourseListView, CourseView
 app_name = "courses312"
 
 router = DefaultRouter()
-# router.register("Category", views.CategoryViewSet)
-# router.register("Course", views.CourseViewSet)
-# router.register("Contact", views.ContactViewSet)
-# router.register("Branch", views.BranchViewSet)
 
-urlpatterns = router.urls
 
-# from django.urls import path
-# from rest_framework.urlpatterns import format_suffix_patterns
-# from courses312 import views
-#
-# urlpatterns = [
-#     path('', views.CoursesList.as_view()),
-#     path('/<int:pk>/', views.CoursesDetail.as_view()),
-# ]
-#
-# urlpatterns = format_suffix_patterns(urlpatterns)
+urlpatterns = [
+    path('', CourseListView.as_view(), name='courses_list'),
+    path('<int:pk>', CourseView.as_view(), name='course_view')
+]
