@@ -46,7 +46,7 @@ class Contact(models.Model):
 
 class Course(models.Model):
     name = models.CharField(verbose_name="Имя", max_length=100)
-    description = models.TextField(verbose_name="Описание", max_length=200)
+    description = models.TextField(verbose_name="Описание", max_length=1000)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name="Категория")
     logo = models.ImageField(verbose_name="Фото логотипа", upload_to='media')
     contacts = models.ForeignKey(Contact, verbose_name="Контакты", on_delete=models.CASCADE)
