@@ -48,10 +48,10 @@ class Course(models.Model):
     description = models.TextField(verbose_name="Описание", max_length=1000)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name="Категория")
     logo = models.ImageField(verbose_name="Фото логотипа", upload_to='media')
-    # contacts = models.ForeignKey(Contact, verbose_name="Контакты", on_delete=models.CASCADE)
-    # branches = models.ForeignKey(Branch, verbose_name="походу филиал", on_delete=models.CASCADE)
-    contacts = models.ManyToManyField(Contact, verbose_name="Контакты", )
-    branches = models.ManyToManyField(Branch, verbose_name="походу филиал", )
+    contacts = models.ForeignKey(Contact, verbose_name="Контакты", on_delete=models.CASCADE)
+    branches = models.ForeignKey(Branch, verbose_name="походу филиал", on_delete=models.CASCADE)
+    # contacts = models.ManyToManyField(Contact, verbose_name="Контакты", )
+    # branches = models.ManyToManyField(Branch, verbose_name="походу филиал", )
 
     class Meta:
         verbose_name = "Курс"
